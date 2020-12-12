@@ -1,0 +1,2 @@
+﻿
+@model IEnumerable<ConsumerWebApi.Models.Booking>@{    ViewBag.Title = "Index";}<h2>Index</h2><table class="table">    <tr>        <th> @Html.DisplayNameFor(m=>m.PackName)</th>    </tr>    @foreach(var item in Model)    {    <tr>        <td>            @Html.DisplayFor(m=>item.PackName)        </td>    </tr>    }</table>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ajaxGet";
+}
+
+<h2>ajaxGet</h2>
+<h2>Books details</h2>
+<table id="tblBooks">
+    <tr style="background-color:#808080;color:white">
+        <td>Id</td>
+        <td>PackName</td>
+
+    </tr>
+</table>
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/api/Booking",
+                type: "Get",
+                success: function (data) {
+                    console.log("inside functon");
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        $("<tr><td>" + data[i].Id + "</td><td>" + data[i].PackName+ "</td><td>" + "</td></tr>").appendTo("#tblBooking");
+                    }
+                },
+                error: function (msg) { alert(msg);}
+            });
+        });
+    </script>
+
